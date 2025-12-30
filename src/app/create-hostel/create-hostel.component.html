@@ -1,0 +1,79 @@
+<div class="page">
+  <form (ngSubmit)="createHostel()">
+
+    <!-- BASIC DETAILS -->
+    <label>Name</label>
+    <input type="text" [(ngModel)]="hostel.name" name="name" required>
+
+    <label>Area</label>
+    <input type="text" [(ngModel)]="hostel.area" name="area" required>
+
+    <label>Address</label>
+    <input type="text" [(ngModel)]="hostel.address" name="address">
+
+    <!-- HOSTEL TYPE -->
+    <label>Type</label>
+    <div class="category-buttons">
+      <button type="button" [class.active]="hostel.type==='boys'" (click)="hostel.type='boys'">Boys</button>
+      <button type="button" [class.active]="hostel.type==='girls'" (click)="hostel.type='girls'">Girls</button>
+      <button type="button" [class.active]="hostel.type==='room'" (click)="hostel.type='room'">Room</button>
+    </div>
+
+    <!-- SHARING SELECTION -->
+    <label>Sharing Rooms</label>
+    <div class="sharing">
+      <div *ngFor="let s of sharing"
+           class="share-box"
+           [class.active]="selectedShare === s"
+           (click)="selectSharing(s)">
+        {{ s }}
+      </div>
+    </div>
+
+    <!-- SHARING DETAILS -->
+    <div *ngIf="selectedShare !== null">
+
+      <h4>{{ selectedShare }} Sharing</h4>
+
+      <label>Price</label>
+      <input type="number" [(ngModel)]="sharePrice" name="price" (change)="setSharePrice()">
+
+      <label>Vacancy</label>
+      <input type="number" [(ngModel)]="shareVacancy" name="vacancy" (change)="setShareVacancy()">
+
+      <!-- SHARING IMAGES -->
+      <label>Sharing Images</label>
+      <input type="file" multiple accept="image/*" (change)="selectSharingImages($event)">
+
+      <div class="preview">
+        <div *ngFor="let img of sharingImagePreviews; let i = index">
+          <img [src]="img" width="100%" height="100%">
+          <button type="button" (click)="removeSharingImage(i)">✖</button>
+        </div>
+      </div>
+
+      <!-- SHARING VIDEOS -->
+      <label>Sharing Videos</label>
+      <input type="file" multiple accept="video/*" (change)="selectSharingVideos($event)">
+
+      <div class="preview">
+        <div *ngFor="let vid of sharingVideoPreviews; let i = index">
+          <video [src]="vid" controls></video>
+          <button type="button" (click)="removeSharingVideo(i)">✖</button>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- LOCATION -->
+    <label>Location</label>
+    <button type="button" (click)="getLiveLocation()">Use my location</button>
+
+    <div *ngIf="hostel.location">
+      Lat: {{ hostel.location.coordinates[1] }} <br>
+      Lng: {{ hostel.location.coordinates[0] }}
+    </div>
+
+    <button type="submit" class="create-btn">Create Hostel</button>
+  </form>
+</div>

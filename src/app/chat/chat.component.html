@@ -1,0 +1,27 @@
+<div class="chat-page">
+
+  <div class="top-bar">
+    <i class="fa-solid fa-arrow-left"></i>
+    <h3>Chat user</h3>
+    <i class="fa-solid fa-phone"></i>
+  </div>
+
+  <div class="chat-body">
+
+<div *ngFor="let m of messages"
+     class="msg"
+     [ngClass]="[
+        m.senderType === 'owner' ? 'me' : 'other',
+        m.message.length > 40 ? 'long' : ''
+     ]">
+  {{m.message}}
+</div>
+
+  </div>
+
+  <div class="input-box">
+    <input type="text" [(ngModel)]="message" placeholder="Write your message">
+    <button (click)="sendMessage()"><i class="fa-solid fa-paper-plane"></i></button>
+  </div>
+
+</div>

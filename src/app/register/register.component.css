@@ -1,0 +1,95 @@
+body
+{
+    background-image: url("https://media.istockphoto.com/id/814423752/photo/eye-of-model-with-colorful-art-make-up-close-up.jpg?s=1024x1024&w=is&k=20&c=NQtm4v1Uzp2luv-6f3qORcq9pDtz2H56p8g9Xix8cY0=");
+    background-repeat: no-repeat;
+    background-size: 100% 60%; /* Cover the entire container */
+    background-position: top; /* Center the background image */
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    border-radius: 12px;
+}
+.header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+form
+{
+   background-color: rgb(211, 208, 208);
+   padding: 10px;
+   border-top-left-radius: 20px;
+   border-top-right-radius: 20px;
+}
+.signup, .login
+{
+    text-align: center;
+    width: 100%;
+    margin-top: 50px;
+    font-size: 18px;
+}
+hr
+{
+    width: 90px;
+    margin: 0px auto;background: rgba(250, 74, 12, 1);
+    color: rgba(250, 74, 12, 1);
+    border-radius: 10px;
+    height: 3px;
+    position: relative;
+    bottom: 15px;
+    z-index: 100;
+    
+}
+.name,.number,.button
+{
+    width: 75%;
+    margin:0px auto;
+    margin-top: 30px;
+    font-size: 16px;
+}
+.name input, .number input
+{
+    width: 97%;
+    height: 30px;
+    margin-top: 5px;
+    border: none;
+    border-bottom: 1px solid black;
+    font-size: 16px;
+}
+.number button
+{
+    background: none;
+    border: none;
+    float: right;
+    position: relative;
+    left: 15px;
+    font-size: 12px;
+}
+.button button
+{
+    width: 100%;
+    padding: 10px;
+    border-radius: 15px;
+    border: none;
+    background: rgba(250, 74, 12, 1);
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: 600;
+
+}
+.parent-container {
+    position: relative;
+    height:730px;
+  }
+  
+  .child-container {
+    position: absolute;
+    bottom: 0;
+    height: 50%;
+    width: 100%;
+    background-color: #ffffff;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+  }
+  

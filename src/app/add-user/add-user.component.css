@@ -1,0 +1,33 @@
+.page{padding:20px;font-family: sans-serif;}
+
+.top-bar{display:flex;justify-content:space-between;align-items:center;margin-bottom:15px;}
+.top-bar h3{margin:0;font-size:18px;font-weight:600;}
+
+.search-box{background:#eee;padding:12px;border-radius:20px;display:flex;gap:10px;align-items:center;margin-bottom:15px;}
+.search-box input{border:0;outline:0;background:transparent;width:100%;}
+
+.user-card{
+  background:white;
+  box-shadow:0 2px 8px rgba(0,0,0,.15);
+  border-radius:15px;
+  padding:15px;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin-bottom: 15px;
+}
+.user-card img{
+  width:40px;height:40px;border-radius:50%;
+}
+
+form label{font-size:12px;color:#7a7a7a;}
+form input{
+  width:100%;border:none;border-bottom:1px solid #ddd;
+  padding:8px 0;margin-bottom:15px;outline:0;
+}
+
+.add-btn{
+  width:100%;background:#ff5a0a;color:white;
+  padding:12px;border-radius:25px;border:none;
+  font-size:16px;margin-top:20px;
+}

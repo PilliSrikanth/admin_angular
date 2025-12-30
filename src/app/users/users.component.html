@@ -1,0 +1,44 @@
+<div class="page" *ngIf="dateWiseUsers.length; else noUsers">
+
+  <!-- header -->
+  <div class="top-bar">
+    <i class="fa-solid fa-ellipsis-vertical"></i>
+    <span>hostelName</span>
+    <i class="fa-regular fa-bell"></i>
+  </div>
+
+  <!-- search -->
+  <div class="search-box">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <input type="text" placeholder="Search users..." >
+  </div>
+
+  <!-- date wise loop -->
+<ng-container *ngFor="let group of dateWiseUsers">
+  <div class="date-title">{{ group.date }}</div>
+
+  <div class="user-card">
+    <div class="user-row"
+     *ngFor="let user of group.users"
+     [routerLink]="['/chat', ownerId, hostelId, user._id]">
+  <div class="circle">{{user.name[0] | uppercase}}</div>
+  <div class="info">
+    <div class="name">{{user.name}}</div>
+    <div class="time">{{user.time}}</div>
+  </div>
+
+  <i class="fa-solid fa-trash delete" (click)="deleteUser(user._id)"></i>
+
+  <i class="fa-solid" [ngClass]="user.active ? 'fa-circle-check enable':'fa-circle-xmark disable'"></i>
+</div>
+
+  </div>
+</ng-container>
+
+
+</div>
+
+
+<ng-template #noUsers>
+  <p>No users for this hostel.</p>
+</ng-template>

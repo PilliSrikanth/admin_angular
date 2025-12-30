@@ -1,0 +1,54 @@
+<div class="page">
+
+  <!-- top bar -->
+  <div class="top-bar">
+    <i class="fa-solid fa-ellipsis-vertical"></i>
+    <div class="location">
+      <i class="fa-solid fa-location-dot"></i>
+      <span>ASdigitech</span>
+    </div>
+    <i class="fa-regular fa-bell"></i>
+  </div>
+
+  <!-- search -->
+  <div class="search-box">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <input type="text" placeholder="Search...">
+  </div>
+
+  <!-- tabs -->
+  <div class="tabs">
+    <div [class.active]="tab=='all'" (click)="tab='all'">ALL</div>
+    <div [class.active]="tab=='latest'" (click)="tab='latest'">LATEST</div>
+  </div>
+
+  <!-- transactions by month -->
+  <div *ngFor="let m of months" class="month-block">
+
+    <div class="month-title">
+      <div>{{m.month}} Received : {{m.transactions.length}}</div>
+      <div>Total : {{getTotal(m.transactions)}}</div>
+    </div>
+
+    <div class="card">
+      <div class="row" *ngFor="let t of m.transactions">
+
+        <div class="left">
+          <div class="icon">M</div>
+          <div class="text">
+            <p>{{t.name}}</p>
+            <small>{{t.time}}</small>
+          </div>
+        </div>
+
+        <div class="right">
+          <p>₹ {{t.amount}}</p>
+          <img [src]="getIcon(t.method)" width="30" height="12"/>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+</div>

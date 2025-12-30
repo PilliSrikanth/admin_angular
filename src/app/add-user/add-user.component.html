@@ -1,0 +1,53 @@
+<div class="page">
+
+  <!-- top -->
+  <div class="top-bar">
+    <i class="fa-solid fa-arrow-left" (click)="back()"></i>
+    <h3>Add User</h3>
+    <i class="fa-regular fa-bell"></i>
+  </div>
+
+  <!-- search -->
+ <!-- Add search button -->
+<div class="search-box">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="text" placeholder="Search users..." [(ngModel)]="searchText">
+  <button (click)="searchUsers()">Search</button>
+</div>
+
+
+  <!-- user card (if found) -->
+<!-- Search results -->
+<div *ngFor="let user of selectedUser" class="user-card" (click)="selectUser(user)">
+  <img [src]="user.image ? user.image : 'assets/noimage.png'" />
+  <b>{{ user.name }}</b>
+  <span>{{ user.mobile }}</span>
+</div>
+
+<!-- Form -->
+<form (ngSubmit)="addUserToHostel()">
+
+  <label>Name</label>
+  <input type="text" [(ngModel)]="form.name" name="name">
+
+  <label>Email</label>
+  <input type="text" [(ngModel)]="form.email" name="email">
+
+  <label>Mobile Number</label>
+  <input type="text" [(ngModel)]="form.phone" name="phone">
+
+  <label>Sharing</label>
+  <select [(ngModel)]="form.sharing" name="sharing">
+    <option [value]="1">2 Sharing</option>
+    <option [value]="2">3 Sharing</option>
+    <option [value]="3">4 Sharing</option>
+    <option [value]="4">5 Sharing</option>
+    <option [value]="5">6 Sharing</option>
+  </select>
+
+  <button class="add-btn">Add</button>
+
+</form>
+
+
+</div>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+<body>        
+<div class="parent-container">
+    <div class="child-container">
+
+        <div class="number">
+            <label>Mobile Number</label>
+            <input type="email" [(ngModel)]="email" name="email" placeholder="Enter Your Phone Number">    
+        </div>
+
+        <div class="name">
+            <label>Password</label><br>
+            <input type="password" [(ngModel)]="password" name="password" placeholder="Enter Your Password">
+        </div>
+
+        <div class="button">
+            <button type="button" (click)="loginUser()">Login</button>
+        </div>
+
+    </div>
+</div>
+
+</body>
+</html>

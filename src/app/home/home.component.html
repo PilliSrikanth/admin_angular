@@ -1,0 +1,73 @@
+<div class="home-page">
+
+  <!-- top bar -->
+  <div class="top-bar">
+    <i class="fa-solid fa-ellipsis-vertical" routerLink="/profile"></i>
+    <div class="location">
+      <i class="fa-solid fa-location-dot"></i>
+      <span>ASdigitech</span>
+    </div>
+    <i class="fa-regular fa-bell" routerLink="/notification"></i>
+  </div>
+
+  <!-- search -->
+  <div class="search-box">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <input type="text" placeholder="Search">
+  </div>
+
+  <!-- banner -->
+  <div class="banner">
+    <img src="assets/banner.png" />
+  </div>
+
+  Welcome to AS Digitech Innovations Services
+
+We provide online subscription-based services including 
+digital solutions, application services, and online payments.
+
+
+<!-- Category -->
+<h4 class="cat-title">Category</h4>
+<div class="category-buttons">
+  <button
+    *ngFor="let cat of categories"
+    [class.active]="activeCategory === cat"
+    (click)="filterByCategory(cat)"
+  >
+    {{ cat }}
+  </button>
+</div>
+
+<!-- Hostel Cards -->
+<div class="hostels">
+  <div class="card" *ngFor="let h of filteredHostels" (click)="openHostel(h._id)">
+    <img [src]="h.images[0] ? h.images[0] : 'assets/noimage.png'" />
+    <h5>{{ h.name }}</h5>
+    <span>
+      Filled: {{ h.totalFilled }} | Vacancy: {{ h.totalVacancy }}
+    </span>
+
+    <!-- Display hostel average rating -->
+    <div class="rating">
+      <ng-container *ngFor="let star of [1,2,3,4,5]">
+        <i class="fa-solid fa-star" 
+           [ngClass]="{'filled': star <= h.avgRating}"></i>
+      </ng-container>
+      <span>{{ h.avgRating }}/5</span>
+    </div>
+
+  </div>
+</div>
+
+
+
+
+
+
+  <!-- create hostel -->
+  <button class="create-btn" (click)="createHostel()">
+    Create an Hostel
+  </button>
+
+</div>

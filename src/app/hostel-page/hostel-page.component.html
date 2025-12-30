@@ -1,0 +1,51 @@
+<div class="page">
+
+  <!-- Top bar -->
+  <div class="top-header">
+    <i class="fa-solid fa-ellipsis-vertical"></i>
+    <span>{{ hostel?.name }}</span>
+    <i class="fa-regular fa-user"></i>
+  </div>
+
+  <!-- Search -->
+  <div class="search-box">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <input type="text" placeholder="Search">
+  </div>
+
+  <!-- Banner --
+  <div class="banner">
+    <img src="{{hostelImage}}" />
+  </div>-->
+
+  <!-- Hostels vacancy row -->
+  <div class="top-row" *ngIf="hostel">
+    <span>Filled: {{ hostel.totalFilled }}</span>
+    <span>Vacancy: {{hostel.totalVacancy}}</span>
+  </div>
+
+  <!-- 3 cards -->
+  <div class="card-menu">
+    <div class="menu-card" (click)="goToTransactions(hostel._id)"> <i class="fa-solid fa-dollar-sign"></i> Transactions <i class="fa-solid fa-user-plus"></i></div>
+    <div class="menu-card" (click)="goToHostelUsers(hostel._id)"> <i class="fa-solid fa-users"></i> hostel Users <i class="fa-solid fa-user-plus"></i></div>
+    <div class="menu-card" (click)="goToAddUser(hostel._id)"><i class="fa-solid fa-user-plus"></i> Add user <i class="fa-solid fa-user-plus"></i></div>
+</div>
+
+  <!-- My Reviews -->
+<div class="reviews-title">My Reviews</div>
+
+<div class="review-card" *ngFor="let r of reviews">
+  <img [src]="r.userId?.image || 'default-user.png'" alt="{{r.userId?.name || 'Anonymous'}}" />
+  <div class="details">
+    <div class="name">{{r.userId?.name || 'Anonymous'}}</div>
+    <div class="comment">{{r.comment}}</div>
+  </div>
+  <div class="rating">
+    <i class="fa-solid fa-star"></i> {{r.rating}}
+  </div>
+</div>
+
+
+</div>
+
+

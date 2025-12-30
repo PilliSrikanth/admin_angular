@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="header">
+    <button class="back-btn" (click)="goBack()">←</button>
+    <h2>owner name</h2>
+    <button class="phone-btn">📞</button>
+  </div>
+
+  <div class="message-box" *ngIf="selectedRequest">
+  <p><strong>Request ID:</strong> {{ selectedRequest._id }}</p>
+  <p><strong>User Name:</strong> {{ selectedRequest.userId?.name }}</p>
+  <p><strong>User Email:</strong> {{ selectedRequest.userId?.email }}</p>
+  <p><strong>User ID:</strong> {{ selectedRequest.userId?._id }}</p>
+  
+  <p><strong>Owner Name:</strong> {{ selectedRequest.ownerId?.name || 'Not assigned' }}</p>
+  <p><strong>Owner Email:</strong> {{ selectedRequest.ownerId?.email || 'Not assigned' }}</p>
+  <p><strong>Owner ID:</strong> {{ selectedRequest.ownerId?._id || selectedRequest.ownerId }}</p>
+  
+  <p><strong>Hostel Name:</strong> {{ selectedRequest.hostelId?.name }}</p>
+  <p><strong>Hostel Area:</strong> {{ selectedRequest.hostelId?.area }}</p>
+  <p><strong>Hostel ID:</strong> {{ selectedRequest.hostelId?._id }}</p>
+
+  <p><strong>Status:</strong> {{ selectedRequest.status | titlecase }}</p>
+  <p><strong>Sharing Type:</strong> {{ selectedRequest.sharingType }}</p>
+  <p><strong>Created At:</strong> {{ selectedRequest.createdAt | date:'medium' }}</p>
+</div>
+
+
+  <div class="btn-group" *ngIf="selectedRequest?.status === 'pending'">
+    <button class="decline" (click)="onDecline()">Decline</button>
+    <button class="accept" (click)="onAccept()">Accept</button>
+  </div>
+
+  <p *ngIf="message" class="status-msg">{{ message }}</p>
+
+  <div class="chat-input">
+    <input type="text" placeholder="Write your message" />
+    <button class="send-btn">➤</button>
+  </div>
+</div>
